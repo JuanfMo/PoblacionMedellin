@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .forms import PoblacionForm
 from .models import Poblacion
 
@@ -17,7 +19,8 @@ def agregar(request):
         poblacion_obj = Poblacion(comuna=var_comuna, edad=var_edad, poblacion_año=var_poblacion_año, numero_poblacion=var_numero_poblacion)
         poblacion_obj.save()
 
-        return render(request, 'poblacion/agregar.html', {'poblacion_obj': poblacion_obj})
+        #return render(request, 'poblacion/agregar.html', {'poblacion_obj': poblacion_obj})
+        return HttpResponseRedirect(reverse('poblacion:index'), {'poblacion_obj': poblacion_obj})
     else:
         form = PoblacionForm()
         return render(request, 'poblacion/agregar.html', {'form': form})
