@@ -24,5 +24,5 @@ def agregar(request):
 
 
 def mostrar(request):
-    all_poblacion = Poblacion.objects.all()
+    all_poblacion = Poblacion.objects.order_by('comuna')
     return render(request, 'poblacion/index.html', {'all_poblacion': all_poblacion})

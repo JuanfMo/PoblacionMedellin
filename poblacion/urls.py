@@ -6,6 +6,6 @@ app_name = 'poblacion'
 
 urlpatterns = [
 
-    url(r'^agregar$', views.agregar, name='agregar'),
+    url(r'^agregar/$', views.agregar, name='agregar'),
     url(r'^$', views.mostrar, name='index'),
 ]
