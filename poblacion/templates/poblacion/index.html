@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Poblacion Medellin</title>
+      {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+  </head>
+  <div class="navbar navbar-default">
+      <ul class="nav navbar-nav navbar-letf" >
+        <li><a href="{% url 'poblacion:agregar' %}">Agregar</a></li>
+        <li><a href="{% url 'poblacion:index' %}">Tabla</a></li>
+      </ul>
+  </div>
+    <body>
+      <table class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th class="col">Numero</th>
+            <th class="col">Comuna</th>
+            <th class="col">Edad</th>
+            <th class="col">Año</th>
+            <th class="col">Poblacion</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for poblacio in all_poblacion %}
+          <tr>
+            <th class="row" > {{ poblacio.id }}</th>
+            <th> {{ poblacio.comuna }}</th>
+            <th> {{ poblacio.edad }}</th>
+            <th> {{ poblacio.poblacion_año}}</th>
+            <th> {{ poblacio.numero_poblacion}}</th>
+          </tr>
+          {% endfor %}
+        </tbody>
+     </table>
+  </body>
+</html>
